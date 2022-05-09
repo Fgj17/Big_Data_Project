@@ -1,0 +1,46 @@
+//Open Git//
+  Ssh username username@54.218.99.3
+
+  Password 
+
+  Cd /tmp
+
+//Open Local terminal//
+    //Navigate to local folder where file is located// 
+    //Example: C:\Users\username\Documents\BigData> sftp username@ipaddress//
+
+  Sftp username@ipaddress
+  Password 
+
+Put -r filename /tmp 
+
+
+//Back to Git//
+  //Create directory file in hadoop// 
+  
+  Hdfs dfs -mkdir dirname 
+  
+  Hdfs dfs -ls 		
+
+  Hdfs dfs -put /tmp/filename dirname/
+  
+  Hdfs dfs -ls Data 
+
+  rm filename 
+  
+  beeline
+  
+  use username;
+  
+  Create external table federal_data ( parent_award_agency_name string, recipient_name string, recipient_state_name string ) 
+  ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+  STORED AS TEXTFILE LOCATION 'Data/'
+  TBLPROPERTIES ('skip.header.line.count'='1');
+  
+  
+  Select recipient_name, count(recipient_name) from federal_data group by recipient_name order by count(recipient_name) desc limit 5;
+
+
+
+
+
