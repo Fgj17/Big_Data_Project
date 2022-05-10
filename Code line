@@ -41,6 +41,13 @@ Put -r filename /tmp
   Select recipient_name, count(recipient_name) from federal_data group by recipient_name order by count(recipient_name) desc limit 5;
 
 
+  Select recipient_name, product_or_service_code, total_dollars_obligated from New_data order by recipient_name, product_or_service_code, total_dollars_obligated desc limit 1;
 
 
+  SELECT
+  awarding_agency_name,
+    COUNT(awarding_agency_name) AS value_occurrence 
+    
+
+  FROM New_data GROUP BY awarding_agency_name ORDER BY value_occurrence DESC LIMIT 1;
 
